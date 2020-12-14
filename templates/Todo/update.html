@@ -1,0 +1,42 @@
+{% extends 'Todo/base.html' %}
+
+{% block title %}
+    Update Page
+{% endblock %}
+
+{% block body %}
+
+    <div class="col-12 ">
+        <h1 class="display-4">TO-DO-LIST</h1>
+    </div>
+
+    <div class="card col">
+        <div class="card-header">
+            Update Task
+        </div>
+
+        <div class="card-body">
+            <form action="{% url 'add_task' %}" method="post">
+            {% csrf_token %}
+
+                <div class="row mb-2">
+                    <div class="col-10 mb-3">
+                        Task{{ form.task }}
+                    </div>
+                    <div class="col-2" >
+                        Completed{{ form.completed }}
+                    </div>
+                </div>
+
+                <div class="text-left">
+                    <input type="submit" value="<- Go back" class="btn btn-info">
+                    <input type="submit" value="Update" class="btn btn-primary">
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+{% endblock%}
